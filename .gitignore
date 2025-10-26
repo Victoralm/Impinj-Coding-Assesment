@@ -351,3 +351,10 @@ Output/
 Dacpac/
 
 .nuke/temp/
+
+**/.vs/
+**/.vscode/
+**/Logs/
+**/bin/
+**/obj/
+**/img/

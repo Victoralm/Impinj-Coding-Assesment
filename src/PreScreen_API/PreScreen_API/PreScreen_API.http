@@ -1,0 +1,6 @@
+@PreScreen_API_HostAddress = http://localhost:5190
+
+GET {{PreScreen_API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,4 +1,7 @@
-## Impinj Coding Assesment:
+# Impinj Coding Assesment
+
+
+## Assesment directions
 
 ```
 TIME:            2-3 hours
@@ -37,3 +40,21 @@ Create a web API that can parse a sales record file into an object. The API shou
 <br></br>
 
 _Hint: a web api skeleton can be created with `dotnet new webapi`_
+
+<br></br>
+
+## Solution Description
+
+### API
+
+A Minimal API project built with .NET 9, designed to remain lightweight and highly performant.
+
+- Implements the CQRS pattern to separate read and write operations.
+- Includes input validation to ensure data integrity.
+- Applies the Service pattern to decouple business logic from the API endpoints.
+- Incorporates Resilience patterns to ensure reliability and fault tolerance during potential server failures.
+- Implements a Logging pattern to monitor and trace the overall behavior of the API.
+
+### Tests
+
+Implements xUnit tests to validate every property and behavior of the returned objects, ensuring correctness and reliability.

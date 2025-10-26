@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36603.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreScreen_API", "PreScreen_API\PreScreen_API.csproj", "{C8B08E1D-6411-4D7C-AD6C-5F05856D10A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_PreScreen_API", "..\Test_PreScreen_API\Test_PreScreen_API.csproj", "{1784A0EF-5CE4-4417-8375-A8165F2F2D8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8B08E1D-6411-4D7C-AD6C-5F05856D10A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B08E1D-6411-4D7C-AD6C-5F05856D10A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B08E1D-6411-4D7C-AD6C-5F05856D10A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B08E1D-6411-4D7C-AD6C-5F05856D10A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1784A0EF-5CE4-4417-8375-A8165F2F2D8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1784A0EF-5CE4-4417-8375-A8165F2F2D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1784A0EF-5CE4-4417-8375-A8165F2F2D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1784A0EF-5CE4-4417-8375-A8165F2F2D8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {605E2CEF-14F4-4EFA-8F25-5B6EECA7F35B}
+	EndGlobalSection
+EndGlobal
