@@ -6,5 +6,5 @@ namespace PreScreen_API.Services.Interfaces;
 
 public interface ISalesProcessor
 {
-    Task<SalesSummaryDto> ProcessAsync(CsvParserCommand request, CancellationToken cancellationToken);
+    Task<SalesSummaryDto> ProcessAsync(CsvParserQuery request, CancellationToken cancellationToken);
 }

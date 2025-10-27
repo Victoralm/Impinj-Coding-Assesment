@@ -32,7 +32,7 @@ public class SalesProcessorTests
         var file = CreateFormFile(csv.ToString());
         var processor = new SalesProcessor();
 
-        var result = await processor.ProcessAsync(new CsvParserCommand(file), CancellationToken.None);
+        var result = await processor.ProcessAsync(new CsvParserQuery(file), CancellationToken.None);
 
         // median of [10.00, 20.00, 30.00] = position (n+1)/2 = (3+1)/2 = ordered middle value = 20.00
         Assert.Equal(20.00m, result.MedianUnitCost);
@@ -56,7 +56,7 @@ public class SalesProcessorTests
         var file = CreateFormFile(csv.ToString());
         var processor = new SalesProcessor();
 
-        var result = await processor.ProcessAsync(new CsvParserCommand(file), CancellationToken.None);
+        var result = await processor.ProcessAsync(new CsvParserQuery(file), CancellationToken.None);
 
         // median of [639.20,116.45,189.55,413.10] = (116.45 + 189.55) / 2 = 301.33
         Assert.Equal(301.33m, result.MedianUnitCost);
@@ -76,6 +76,6 @@ public class SalesProcessorTests
         var processor = new SalesProcessor();
 
         await Assert.ThrowsAsync<ArgumentException>(async () =>
-            await processor.ProcessAsync(new CsvParserCommand(file), CancellationToken.None));
+            await processor.ProcessAsync(new CsvParserQuery(file), CancellationToken.None));
     }
 }

@@ -12,32 +12,6 @@ namespace PreScreen_API.DI;
 
 public static class DependencyInjection
 {
-    /*public static void AddingSerilog(this WebApplicationBuilder builder)
-    {
-        var configuration = builder.Configuration;
-
-        var services = builder.Services;
-
-        var logDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Logs");
-        Directory.CreateDirectory(logDirectory);
-        var logFile = Path.Combine(logDirectory, "app-.log");
-
-        Log.Logger = new LoggerConfiguration()
-            .ReadFrom.Configuration(configuration)
-            .MinimumLevel.Information()
-            .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
-            .MinimumLevel.Override("System", Serilog.Events.LogEventLevel.Warning)
-            .Enrich.FromLogContext()
-            .WriteTo.File(
-                path: logFile,
-                rollingInterval: RollingInterval.Day,
-                retainedFileCountLimit: 7,
-                fileSizeLimitBytes: 50 * 1024 * 1024,
-                rollOnFileSizeLimit: true,
-                shared: true)
-            .CreateLogger();
-    }*/
-
     public static void AddingSerilog(this WebApplicationBuilder builder)
     {
         var configuration = builder.Configuration;
@@ -110,8 +84,8 @@ public static class DependencyInjection
 
         services.AddCarter();
 
-        services.AddTransient<CsvParserCommandHandler>();
-        services.AddTransient<ICommandHandler<CsvParserCommand, ResultDto<SalesSummaryDto>>, CsvParserCommandHandler>();
+        services.AddTransient<CsvParserQueryHandler>();
+        services.AddTransient<ICommandQueryHandler<CsvParserQuery, ResultDto<SalesSummaryDto>>, CsvParserQueryHandler>();
 
         return services;
     }

@@ -10,7 +10,7 @@ namespace PreScreen_API.Services.Implementations;
 
 public class SalesProcessor : ISalesProcessor
 {
-    public async Task<SalesSummaryDto> ProcessAsync(CsvParserCommand request, CancellationToken cancellationToken)
+    public async Task<SalesSummaryDto> ProcessAsync(CsvParserQuery request, CancellationToken cancellationToken)
     {
         await using var input = request.File!.OpenReadStream();
         var regionCounts = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);

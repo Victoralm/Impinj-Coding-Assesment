@@ -13,9 +13,9 @@ using System.Text;
 
 namespace PreScreen_API.Features;
 
-public record CsvParserCommand(IFormFile? File);
+public record CsvParserQuery(IFormFile? File);
 
-public class CsvParserCommandValidator : AbstractValidator<CsvParserCommand>
+public class CsvParserQueryValidator : AbstractValidator<CsvParserQuery>
 {
     private static readonly HashSet<string> AllowedContentTypes = new(StringComparer.OrdinalIgnoreCase)
     {
@@ -31,7 +31,7 @@ public class CsvParserCommandValidator : AbstractValidator<CsvParserCommand>
         ".csv"
     };
 
-    public CsvParserCommandValidator()
+    public CsvParserQueryValidator()
     {
         RuleFor(x => x.File)
             .NotNull().WithMessage("File is required.")
@@ -78,11 +78,11 @@ public class CsvParserCommandValidator : AbstractValidator<CsvParserCommand>
     }
 }
 
-public sealed class CsvParserCommandHandler(
-    ILogger<CsvParserCommandHandler> _logger,
-    ResiliencePipelineProvider<string> _pipelineProvider) : ICommandHandler<CsvParserCommand, ResultDto<SalesSummaryDto>>
+public sealed class CsvParserQueryHandler(
+    ILogger<CsvParserQueryHandler> _logger,
+    ResiliencePipelineProvider<string> _pipelineProvider) : ICommandQueryHandler<CsvParserQuery, ResultDto<SalesSummaryDto>>
 {
-    public async Task<ResultDto<SalesSummaryDto>> HandleAsync(CsvParserCommand request, CancellationToken cancellationToken)
+    public async Task<ResultDto<SalesSummaryDto>> HandleAsync(CsvParserQuery request, CancellationToken cancellationToken)
     {
         var pipeline = _pipelineProvider.GetPipeline("default");
         if (pipeline == null)
@@ -116,9 +116,9 @@ public sealed class CsvFileParser : ICarterModule
     public void AddRoutes(IEndpointRouteBuilder app)
     {
         app.MapPost("/CsvFileParser", async (
-            [FromForm] CsvParserCommand command,
-            [FromServices] IValidator<CsvParserCommand> validator,
-            [FromServices] CsvParserCommandHandler handler,
+            [FromForm] CsvParserQuery command,
+            [FromServices] IValidator<CsvParserQuery> validator,
+            [FromServices] CsvParserQueryHandler handler,
             CancellationToken cancellationToken) =>
         {
             var validationResult = await validator.ValidateAsync(command, cancellationToken);
