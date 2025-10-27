@@ -116,16 +116,16 @@ public sealed class CsvFileParser : ICarterModule
     public void AddRoutes(IEndpointRouteBuilder app)
     {
         app.MapPost("/CsvFileParser", async (
-            [FromForm] CsvParserQuery command,
+            [FromForm] CsvParserQuery request,
             [FromServices] IValidator<CsvParserQuery> validator,
             [FromServices] CsvParserQueryHandler handler,
             CancellationToken cancellationToken) =>
         {
-            var validationResult = await validator.ValidateAsync(command, cancellationToken);
+            var validationResult = await validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
                 return Results.BadRequest(validationResult.ToResultDtoFailure<ResultDto<SalesSummaryDto>>());
 
-            var result = await handler.HandleAsync(command, cancellationToken);
+            var result = await handler.HandleAsync(request, cancellationToken);
 
             if (result == null || !result.Success)
                 return Results.BadRequest(result);
