@@ -58,3 +58,28 @@ A Minimal API project built with .NET 9, designed to remain lightweight and high
 ### Tests
 
 Implements xUnit tests to validate every property and behavior of the returned objects, ensuring correctness and reliability.
+
+<br></br>
+
+## Personal Notes
+
+### PriorityQueue vs QuickSelect
+
+In my local tests, both approaches produced equivalent response times.
+Further investigation should focus on verifying memory-consumption parity between both methods.
+
+PriorityQueue:
+
+```bash
+2025-10-27 12:08:23.976 -03:00 [INF] Execution attempt. Source: 'default/(null)/Retry', Operation Key: 'null', Result: 'PreScreen_API.Models.SalesSummaryDto', Handled: 'false', Attempt: '0', Execution Time: 553.1677ms
+2025-10-27 12:08:26.836 -03:00 [INF] Execution attempt. Source: 'default/(null)/Retry', Operation Key: 'null', Result: 'PreScreen_API.Models.SalesSummaryDto', Handled: 'false', Attempt: '0', Execution Time: 505.1935ms
+2025-10-27 12:08:28.026 -03:00 [INF] Execution attempt. Source: 'default/(null)/Retry', Operation Key: 'null', Result: 'PreScreen_API.Models.SalesSummaryDto', Handled: 'false', Attempt: '0', Execution Time: 217.3273ms
+```
+
+QuickSelect:
+
+```bash
+2025-10-27 13:12:03.115 -03:00 [INF] Execution attempt. Source: 'default/(null)/Retry', Operation Key: 'null', Result: 'PreScreen_API.Models.SalesSummaryDto', Handled: 'false', Attempt: '0', Execution Time: 468.8407ms
+2025-10-27 13:12:06.636 -03:00 [INF] Execution attempt. Source: 'default/(null)/Retry', Operation Key: 'null', Result: 'PreScreen_API.Models.SalesSummaryDto', Handled: 'false', Attempt: '0', Execution Time: 539.2537ms
+2025-10-27 13:12:08.117 -03:00 [INF] Execution attempt. Source: 'default/(null)/Retry', Operation Key: 'null', Result: 'PreScreen_API.Models.SalesSummaryDto', Handled: 'false', Attempt: '0', Execution Time: 246.7871ms
+```

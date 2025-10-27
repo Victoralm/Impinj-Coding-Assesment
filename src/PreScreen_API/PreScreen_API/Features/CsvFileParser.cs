@@ -94,6 +94,7 @@ public sealed class CsvParserQueryHandler(
         try
         {
             var csvParserProcessor = new SalesProcessor();
+            //var csvParserProcessor = new SalesProcessorWithQuickSelect();
 
             var result = await pipeline.ExecuteAsync(
                 async ct => await csvParserProcessor.ProcessAsync(request, cancellationToken),
